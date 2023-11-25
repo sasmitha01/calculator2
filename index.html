@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+            input[type="text"] {
+            width: 100px;
+            border-color: rgba(249, 247, 247, 0.989);
+        }
+
+        /* Define styles for the buttons using classes */
+        .number-button {
+            background-color: #323538; /* Grey background color for number buttons */
+            color: #fff; /* White text color for number buttons */
+        }
+
+        .operator-button {
+            background-color: #58a953; /* Green background color for operator buttons */
+            color: #fff; /* White text color for operator buttons */
+        }
+
+        .special-button {
+            background-color: #cf5432; /* Red background color for special buttons */
+            color: #fff; /* White text color for special buttons */
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form name="calculator">
+        <input type="text" name="display" id="display" readonly>
+        <br>
+        <!-- Add classes to each button -->
+        <input type="button" value="1" class="number-button" onclick="addToDisplay('1')">
+        <input type="button" value="2" class="number-button" onclick="addToDisplay('2')">
+        <input type="button" value="3" class="number-button" onclick="addToDisplay('3')">
+        <input type="button" value="+" class="operator-button" onclick="addToDisplay('+')">
+        <br>
+        <input type="button" value="4" class="number-button" onclick="addToDisplay('4')">
+        <input type="button" value="5" class="number-button" onclick="addToDisplay('5')">
+        <input type="button" value="6" class="number-button" onclick="addToDisplay('6')">
+        <input type="button" value="-" class="operator-button" onclick="addToDisplay('-')">
+        <br>
+        <input type="button" value="7" class="number-button" onclick="addToDisplay('7')">
+        <input type="button" value="8" class="number-button" onclick="addToDisplay('8')">
+        <input type="button" value="9" class="number-button" onclick="addToDisplay('9')">
+        <input type="button" value="*" class="operator-button" onclick="addToDisplay('*')">
+        <br>
+        <input type="button" value="C" class="special-button" onclick="clearDisplay()">
+        <input type="button" value="0" class="number-button" onclick="addToDisplay('0')">
+        <input type="button" value="=" class="operator-button" onclick="calculate()">
+        <input type="button" value="/" class="operator-button" onclick="addToDisplay('/')">
+    </form>
+
+    <script>
+        function addToDisplay(value) {
+            document.calculator.display.value += value;
+        }
+
+        function clearDisplay() {
+            document.calculator.display.value = '';
+        }
+
+        function calculate() {
+            try {
+                document.calculator.display.value = eval(document.calculator.display.value);
+            } catch (error) {
+                document.calculator.display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
